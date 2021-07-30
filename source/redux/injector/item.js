@@ -3,6 +3,7 @@ export const SET_ITEM = 'setItem';
 
 export const GET_ITEM_BY_ID = 'getItemById';
 export const SET_ITEM_BY_ID = 'setItemById';
+export const CLEAR_ITEM_BY_ID = 'clearPokemonById';
 
 export const getItem = () => ({
     type: GET_ITEM
@@ -13,8 +14,9 @@ export const setItem = (payload) => ({
     payload
 });
 
-export const getItemById = () => ({
-    type: GET_ITEM_BY_ID
+export const getItemById = (param) => ({
+    type: GET_ITEM_BY_ID,
+    param
 });
 
 export const setItemById = (payload) => ({
@@ -22,18 +24,24 @@ export const setItemById = (payload) => ({
     payload
 });
 
+export const clearItemById = () => ({
+    type: CLEAR_ITEM_BY_ID,
+});
+
 const initialState = {
     itemList: [],
-    itemDetail: {},
+    itemDetail: null,
 };
 
 export default (state = initialState, action) => {
     switch (action.type) {
         case SET_ITEM:
             const { item } = action;
-            return { ...state, itemList: state.itemList.push(item) };//* function add list of items to the array
+            return { ...state, itemList: action.payload };
         case SET_ITEM_BY_ID:
-            return { ...state, itemDetail: item };//* function to add the item detail to object
+            return { ...state, itemDetail: action.payload };
+        case CLEAR_ITEM_BY_ID:
+            return { ...state, itemDetail: null };
         default:
             return state;
     }

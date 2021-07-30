@@ -1,4 +1,6 @@
+import 'react-native-gesture-handler';
 import React from 'react';
+import { NavigationContainer } from '@react-navigation/native';
 import {
   SafeAreaView,
 } from 'react-native';
@@ -9,9 +11,11 @@ import Index from './source';
 const App = () => {
   return (
     <Provider store={store}>
-      <SafeAreaView style={{ flex: 1 }}>
-        <Index />
-      </SafeAreaView>
+      <NavigationContainer>
+        <SafeAreaView style={{ flex: 1 }}>
+          <Index />
+        </SafeAreaView>
+      </NavigationContainer>
     </Provider>
   );
 };
