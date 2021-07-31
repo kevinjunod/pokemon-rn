@@ -1,8 +1,8 @@
 import React from 'react';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
-import Pokemon from './pokemon';
-import Item from './item';
+import Pokemon from './pokemon/pokemon';
+import Item from './item/item';
 
 const Tab = createBottomTabNavigator();
 

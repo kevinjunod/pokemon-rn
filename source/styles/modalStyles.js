@@ -8,12 +8,12 @@ const styles = StyleSheet.create({
     },
     modalView: {
         justifyContent: 'space-evenly',
-        height: '80%',
+        height: '90%',
         width: '80%',
-        margin: 20,
+        margin: 10,
         backgroundColor: "#FDFDFB",
         borderRadius: 20,
-        padding: 35,
+        padding: 15,
         alignItems: "center",
         shadowColor: "#000",
         shadowOffset: {
@@ -26,11 +26,13 @@ const styles = StyleSheet.create({
     },
     button: {
         borderRadius: 20,
-        padding: 10,
-        elevation: 2
+        paddingHorizontal: 40,
+        paddingVertical: 10,
+        elevation: 2,
+        margin: 10,
     },
     buttonClose: {
-        backgroundColor: "#2196F3",
+        backgroundColor: "orange",
     },
     textStyle: {
         color: "white",
@@ -42,7 +44,50 @@ const styles = StyleSheet.create({
     },
     cardButton: {
         marginTop: 20,
-    }
+    },
+    contentContainerStyle: {
+        justifyContent: 'space-evenly',
+        flex: 1,
+        alignItems: 'center'
+    },
+    imageSize: {
+        width: 150,
+        height: 150
+    },
+    cardTitle: {
+        padding: 5,
+        borderWidth: 1,
+        borderColor: '#f4f186',
+        backgroundColor: '#f4f186',
+        borderRadius: 10,
+        marginBottom: 10
+    },
+    contentTitle: {
+        fontWeight: 'bold',
+        fontSize: 17,
+        textTransform: 'uppercase',
+        color: '#3A3B3C',
+        fontStyle: 'italic'
+    },
+    contentStyle: {
+        padding: 10,
+        margin: 10,
+        borderWidth: 1,
+        borderRadius: 10,
+        borderColor: '#f4f186',
+        backgroundColor: '#f4f186',
+        width: 250
+    },
+    contentTitleStyle: {
+        color: '#3A3B3C',
+        fontWeight: '700',
+        fontStyle: 'italic'
+    },
+    pokemonTypeStyle: {
+        fontStyle: 'italic',
+        color: '#3A3B3C'
+    },
+
 })
 
 export { styles }

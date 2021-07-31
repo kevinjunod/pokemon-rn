@@ -1,13 +1,14 @@
 import { takeLatest } from "redux-saga/effects";
 import { handleGetAllPokemon, handleGetPokemonDetail, handleGetNewPokemonList } from "./handler/pokemon";
-import { handleGetAllItem, handleGetItemDetail } from './handler/item';
+import { handleGetAllItem, handleGetItemDetail, handleGetNewItemList } from './handler/item';
 import { GET_NEW_POKEMON_LIST, GET_POKEMON, GET_POKEMON_BY_ID, } from '../injector/pokemon';
-import { GET_ITEM, GET_ITEM_BY_ID } from '../injector/item';
+import { GET_ITEM, GET_ITEM_BY_ID, GET_NEW_ITEM_LIST } from '../injector/item';
 
 export function* watcherSaga() {
     yield takeLatest(GET_POKEMON, handleGetAllPokemon);
-    yield takeLatest(GET_ITEM, handleGetAllItem);
     yield takeLatest(GET_POKEMON_BY_ID, handleGetPokemonDetail);
+    yield takeLatest(GET_NEW_POKEMON_LIST, handleGetNewPokemonList);
+    yield takeLatest(GET_ITEM, handleGetAllItem);
     yield takeLatest(GET_ITEM_BY_ID, handleGetItemDetail);
-    yield takeLatest(GET_NEW_POKEMON_LIST, handleGetNewPokemonList)
+    yield takeLatest(GET_NEW_ITEM_LIST, handleGetNewItemList);
 }

@@ -64,7 +64,6 @@ export default (state = initialState, action) => {
     switch (action.type) {
         case SET_POKEMON:
             const { pokemon } = action;
-            // console.log("HALO", action.payload);
             return { ...state, pokemonList: action.payload };
         case SET_NEXT_URL:
             return { ...state, nextUrl: action.payload };
@@ -73,7 +72,6 @@ export default (state = initialState, action) => {
         case CLEAR_POKEMON_BY_ID:
             return { ...state, pokemonDetail: null };
         case SET_NEW_POKEMON_LIST:
-            console.log("ACTION PAYLOAD NEW LIST", action.payload);
             return { ...state, pokemonList: [...state.pokemonList, ...action.payload] };
         default:
             return state;

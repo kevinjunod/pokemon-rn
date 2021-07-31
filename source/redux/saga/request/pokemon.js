@@ -15,7 +15,6 @@ export function requestPokemonDetail(param) {
 }
 
 export function requestNewPokemonList(param) {
-    console.log({ param });
     return axios.request({
         method: 'get',
         url: param

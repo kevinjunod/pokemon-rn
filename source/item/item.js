@@ -1,8 +1,8 @@
 import React, { useEffect, useState, useCallback } from 'react';
 import { View, Text, TouchableOpacity, FlatList } from 'react-native';
-import { styles } from './styles/styles';
+import { styles } from '../styles/styles';
 import { useSelector, useDispatch } from 'react-redux';
-import { getItem } from './redux/injector/item';
+import { getItem, getNewItemList } from '../redux/injector/item';
 import ModalDetailItem from './detailItem';
 
 const Item = () => {
@@ -15,7 +15,9 @@ const Item = () => {
     const [modalDetailItem, setModalDetailItem] = useState(false);
     const [urlDetail, setUrlDetail] = useState("");
 
+
     const itemList = useSelector((state) => state.item.itemList);
+    const nextUrl = useSelector((state) => state.pokemon.nextUrl)
 
     const setDetailItem = useCallback((visible) => {
         return setModalDetailItem(visible)
@@ -49,14 +51,23 @@ const Item = () => {
                     List of Items
                 </Text>
             </View>
-            {itemList &&
+            {itemList && nextUrl &&
                 <FlatList
+                    style={styles.contentStyle}
+                    onEndReached={() => {
+                        dispatch(getNewItemList(nextUrl))
+                    }}
+                    onEndReachedThreshold={.5}
+                    contentContainerStyle={{ alignItems: 'center' }}
+                    numColumns={3}
                     data={itemList}
                     ItemSeparatorComponent={itemSeparator}
                     renderItem={({ item }) => (
-                        <TouchableOpacity onPress={() => detailingItem(item.url)}>
-                            <Text style={{ color: '#000' }}>{item.name}</Text>
-                        </TouchableOpacity>
+                        <View style={styles.cardContent}>
+                            <TouchableOpacity onPress={() => detailingItem(item.url)}>
+                                <Text style={styles.textCard}>{item.name}</Text>
+                            </TouchableOpacity>
+                        </View>
                     )}
                     keyExtractor={item => item.name}
                 />

@@ -6,7 +6,6 @@ export function* handleGetAllPokemon() {
     try {
         const response = yield call(requestAllPokemon);
         const data = response.data.results;
-        // console.log({ data });
         const nextUrl = response.data.next;
         yield put(setPokemon(data));
         yield put(setNextUrl(nextUrl));
@@ -18,7 +17,6 @@ export function* handleGetAllPokemon() {
 export function* handleGetPokemonDetail(action) {
     try {
         const response = yield call(requestPokemonDetail, action.param);
-        // console.log({ response });
         const data = response.data;
         yield put(setPokemonById(data));
     } catch (error) {
@@ -29,7 +27,6 @@ export function* handleGetPokemonDetail(action) {
 export function* handleGetNewPokemonList(action) {
     try {
         const response = yield call(requestNewPokemonList, action.param);
-        // console.log("NEW POKEMONS", response);
         const data = response.data.results;
         const nextUrl = response.data.next;
         yield put(setNewPokemonList(data));

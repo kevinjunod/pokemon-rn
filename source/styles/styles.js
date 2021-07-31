@@ -1,4 +1,4 @@
-import { StyleSheet, Dimensions } from 'react-native';
+import { StyleSheet } from 'react-native';
 
 const styles = StyleSheet.create({
     container: {
@@ -13,6 +13,25 @@ const styles = StyleSheet.create({
         width: '100%',
         backgroundColor: '#f4f186',
         alignItems: 'center',
+    },
+    cardContent: {
+        padding: 10,
+        borderWidth: 1,
+        backgroundColor: '#FDFD96',
+        borderRadius: 10,
+        borderColor: '#d2b55b',
+        alignItems: 'center',
+        marginHorizontal: 5,
+        marginVertical: 5
+    },
+    contentStyle: {
+        flexWrap: 'wrap',
+        flexDirection: 'column'
+    },
+    textCard: {
+        color: '#3A3B3C',
+        letterSpacing: .6,
+        fontSize: 17
     }
 })
 
